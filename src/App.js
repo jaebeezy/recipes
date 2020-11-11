@@ -19,6 +19,7 @@ const App = () => {
       );
       const data = await response.json();
       setRecipes(data.hits);
+      console.log(data.hits);
     };
     getRecipes();
   }, [query]);
@@ -34,15 +35,16 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className="container">
       <form onSubmit={getSearch} className="search-form">
         <input
-          className="search-bar"
+          className="input"
           type="text"
+          placeholder="Search a recipe..."
           value={search}
           onChange={updateSearch}
         />
-        <button className="search-button" type="submit">
+        <button className="button is-outlined" type="submit">
           Search
         </button>
       </form>
@@ -54,6 +56,7 @@ const App = () => {
             calories={recipe.recipe.calories}
             image={recipe.recipe.image}
             ingredients={recipe.recipe.ingredients}
+            url={recipe.recipe.url}
           />
         ))}
       </div>
