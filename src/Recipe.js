@@ -1,11 +1,14 @@
 import React from "react";
 
 const Recipe = ({ title, calories, image, ingredients, url }) => {
+  
+  const uppercasedTitle = title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+
   return (
     <div className="box">
       <div className="content">
-        <h1 className="is-large">{title}</h1>      
-        <p className="subtitle is-4">Total Calories - {Math.round(calories)}</p>
+        <h1 className="is-large has-text-centered">{uppercasedTitle}</h1>      
+        <p className="subtitle is-4 has-text-centered">Total Calories - {Math.round(calories)}</p>
         <ul>
           {ingredients.map((ingredient) => (
             <li>{ingredient.text}</li>

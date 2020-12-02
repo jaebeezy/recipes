@@ -48,7 +48,7 @@ const App = () => {
           Search
         </button>
       </form>
-      <div className="recipes">
+      <div className="is-flex-direction-column">
         {recipes.map((recipe) => (
           <Recipe
             key={recipe.recipe.label}
